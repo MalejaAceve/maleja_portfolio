@@ -774,7 +774,7 @@ body {
 }
 /* Barras */
 .bar-list { display: flex; flex-direction: column; gap: 14px; }
-.bar-item {}
+
 .bar-labels {
   display: flex;
   justify-content: space-between;
@@ -795,5 +795,114 @@ body {
   width: 0;
   border-radius: 99px;
   transition: width 1.2s cubic-bezier(.4,0,.2,1);
+}
+
+/* =========================================================
+   COMENTARIOS DE CLIENTES
+   ========================================================= */
+.comentario-wrap {
+  max-width: 500px;
+}
+.comentario-wrap img {
+  width: 100%;
+  border-radius: 14px;
+  border: 1px solid var(--blush);
+}
+
+/* =========================================================
+   CARRUSEL CASOS DE ÉXITO
+   ========================================================= */
+.carrusel-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.carrusel-viewport {
+  width: 300px;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.carrusel-track {
+  display: flex;
+  transition: transform .45s cubic-bezier(.4, 0, .2, 1);
+}
+
+.carr-slide {
+  min-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.carr-slide video {
+  width: 100%;
+  max-height: 520px;
+  border-radius: 14px;
+  background: #000;
+  object-fit: contain;
+}
+
+.carr-slide video::backdrop {
+  background: #000;
+}
+ 
+.carr-caption {
+  font-family: var(--font-ui);
+  font-size: .82rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.carr-btn {
+  background: var(--white);
+  border: 2px solid var(--blush);
+  color: var(--terracota);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background .2s, color .2s;
+}
+
+.carr-btn:hover {
+  background: var(--terracota);
+  color: var(--white);
+}
+
+.carr-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+}
+
+.carr-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--blush);
+  cursor: pointer;
+  transition: background .2s, transform .2s;
+}
+
+.carr-dot.active {
+  background: var(--terracota);
+  transform: scale(1.3);
+}
+
+/* Responsive carrusel */
+@media (max-width: 480px) {
+  .carr-btn {
+    width: 36px;
+    height: 36px;
+    font-size: .9rem;
+  }
 }
 

@@ -49,7 +49,7 @@
     <!-- CERTIFICADO -->
     <section class="port-section cert-section">
       <h3 class="section-title">Certificaciones</h3>
-      <img src="./images/certificado.jpg" alt="Certificado" style="width:100%;border-radius:14px;max-width:500px;">
+      <center><img src="./images/certificado.jpg" alt="Certificado" style="width:100%;border-radius:14px;max-width:500px;"></center>
       </div>
     </section>
 
@@ -127,8 +127,125 @@
   <div style="max-width:500px;">
     <img src="./images/comentrio.jpg" alt="Comentario cliente" style="width:100%;border-radius:14px;border:1px solid #E9B79A;">
   </div>
+  <br>
+  <br>
+
+<!-- CASOS DE ÉXITO — CARRUSEL -->
+<section class="port-section">
+  <h3 class="section-title">Casos de Éxito</h3>
+
+  <div class="carrusel-wrap">
+    <button class="carr-btn carr-prev" onclick="moverCarrusel(-1)">&#8592;</button>
+    <div class="carrusel-viewport">
+      <div class="carrusel-track" id="carruselTrack">
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video1.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">EXPERIENCIA</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video2.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">UGC MODA</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video3.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">RECOMENDACION LUGAR</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video4.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">UGC PRODUCTO</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video5.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">EVENTOS</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video6.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">UGC MODA</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video7.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">UGC FOODIE</p>
+        </div>    
+        
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video8.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">UGC CUIDADO Y BIENESTAR</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/video9.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">CAMPAÑA</p>
+        </div>        
+
+      </div>
+    </div>
+    <button class="carr-btn carr-next" onclick="moverCarrusel(1)">&#8594;</button>
+  </div>
+
+  <div class="carr-dots" id="carrDots">
+    <span class="carr-dot active" onclick="irASlide(0)"></span>
+    <span class="carr-dot" onclick="irASlide(1)"></span>
+    <span class="carr-dot" onclick="irASlide(2)"></span>
+    <span class="carr-dot" onclick="irASlide(3)"></span>
+    <span class="carr-dot" onclick="irASlide(4)"></span>
+    <span class="carr-dot" onclick="irASlide(5)"></span>
+    <span class="carr-dot" onclick="irASlide(6)"></span>
+    <span class="carr-dot" onclick="irASlide(7)"></span>
+    <span class="carr-dot" onclick="irASlide(8)"></span>
+  </div>
 
 </section>
+
+<!-- SCRIPT CARRUSEL -->
+<script>
+(function(){
+  let current = 0;
+  const total = 9;
+  const track = document.getElementById('carruselTrack');
+  const dots = document.querySelectorAll('.carr-dot');
+
+  window.moverCarrusel = function(dir) {
+    const videos = track.querySelectorAll('video');
+    if (videos[current]) videos[current].pause();
+    current = (current + dir + total) % total;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  };
+
+  window.irASlide = function(index) {
+    const videos = track.querySelectorAll('video');
+    if (videos[current]) videos[current].pause();
+    current = index;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === current));
+  };
+})();
+</script>
 
     <!-- ESTRATEGIA UGC -->
     <section class="port-section strategy-section">
