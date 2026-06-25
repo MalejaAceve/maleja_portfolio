@@ -250,6 +250,78 @@
 })();
 </script>
 
+<!-- RECETAS -->
+<section class="port-section">
+  <h3 class="section-title">Recetas</h3>
+
+  <div class="carrusel-wrap">
+    <button class="carr-btn" onclick="moverCarruselRecetas(-1)">&#8592;</button>
+    <div class="carrusel-viewport">
+      <div class="carrusel-track" id="carruselRecetas">
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/receta1.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">Receta 1</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/receta2.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">Receta 2</p>
+        </div>
+
+        <div class="carr-slide">
+          <video controls playsinline>
+            <source src="videos/receta3.mp4" type="video/mp4">
+          </video>
+          <p class="carr-caption">Receta 3</p>
+        </div>
+
+      </div>
+    </div>
+    <button class="carr-btn" onclick="moverCarruselRecetas(1)">&#8594;</button>
+  </div>
+
+  <div class="carr-dots" id="dotsRecetas">
+    <span class="carr-dot active" onclick="irASlideRecetas(0)"></span>
+    <span class="carr-dot" onclick="irASlideRecetas(1)"></span>
+    <span class="carr-dot" onclick="irASlideRecetas(2)"></span>
+  </div>
+
+  <p class="recetas-frase">
+    ¿Sabías que también creo contenido de recetas? Auténtico, apetitoso y con el toque perfecto para conectar con tu audiencia foodie.
+  </p>
+
+</section>
+
+<script>
+(function(){
+  let currentR = 0;
+  const totalR = 3;
+  const track = document.getElementById('carruselRecetas');
+  const dots = document.querySelectorAll('#dotsRecetas .carr-dot');
+
+  window.moverCarruselRecetas = function(dir) {
+    const videos = track.querySelectorAll('video');
+    if (videos[currentR]) videos[currentR].pause();
+    currentR = (currentR + dir + totalR) % totalR;
+    track.style.transform = 'translateX(-' + (currentR * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentR));
+  };
+
+  window.irASlideRecetas = function(index) {
+    const videos = track.querySelectorAll('video');
+    if (videos[currentR]) videos[currentR].pause();
+    currentR = index;
+    track.style.transform = 'translateX(-' + (currentR * 100) + '%)';
+    dots.forEach((d, i) => d.classList.toggle('active', i === currentR));
+  };
+})();
+</script>
+
     <!-- ESTRATEGIA UGC -->
     <section class="port-section strategy-section">
       <h3 class="section-title">¿En qué se basa la estrategia UGC Creators?</h3>
